@@ -2331,6 +2331,7 @@
   \stepcounter{tikzumlActorNum}%
   \pgfkeys{/tikzuml/actor/.cd,%
            x/.initial=0, y/.initial=0, scale/.initial=1, below/.initial=0.5cm,%
+           name/.initial=actor-\thetikzumlActorNum,%
            draw/.initial=\tikzumldrawcolor, text/.initial=\tikzumltextcolor,%
            .unknown/.code={%
              \let\keyname=\pgfkeyscurrentname%
@@ -2339,13 +2340,14 @@
   \pgfkeys{/tikzuml/actor/.cd, #1}%
   \pgfkeys{/tikzuml/actor/.cd,%
            x/.get=\posx, y/.get=\posy, scale/.get=\tikzumlactorscale,%
+           name/.get=\tikzumlActorNodeName,%
            below/.get=\tikzumlactorbelow,%
            draw/.get=\tikzumlactordraw, text/.get=\tikzumlactortext}%
   %
   \def\tikzumlActorName{#2}%
-  \begingroup%
-    \def\_{_}\edef\x{\endgroup%
-      \def\noexpand\tikzumlActorNodeName{\tikzumlActorName}}\x%
+  %\begingroup%
+  %  \def\_{_}\edef\x{\endgroup%
+  %    \def\noexpand\tikzumlActorNodeName{\tikzumlActorName}}\x%
   %
   \def\tikzumlActorPos{\posx,\posy}%
   %
